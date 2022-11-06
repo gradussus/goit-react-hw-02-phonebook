@@ -1,7 +1,16 @@
 import { Component } from 'react';
+import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 
-export class AddContact extends Component {
+const AddContactForm = styled.form`
+  background-color: #b1cede;
+  max-width: 450px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 25px;
+`;
+
+export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
@@ -26,7 +35,7 @@ export class AddContact extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.onSubmit}>
+      <AddContactForm onSubmit={this.onSubmit} autoComplete="off">
         <label>
           <p>Name</p>
           <input
@@ -51,7 +60,7 @@ export class AddContact extends Component {
         </label>
         <br />
         <button type="submit">Add contact</button>
-      </form>
+      </AddContactForm>
     );
   }
 }
